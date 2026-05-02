@@ -10,6 +10,9 @@ next.user-config.*
 # Environment variables
 .env*.local
 
+# Editor / tooling artifacts
+.codex/
+
 # Common ignores
 node_modules
 .next/
