@@ -1,0 +1,34 @@
+{
+  "chainId": 1979,
+  "contractName": "HeliosArena",
+  "symbol": "HELIOS",
+  "systemContracts": {
+    "imagePrecompile": "0x0000000000000000000000000000000000000818",
+    "ritualWallet": "0x532F0dF0896F353d8C3DD8cc134e8129DA2a3948",
+    "asyncDelivery": "0x5A16214fF555848411544b005f7Ac063742f39F6",
+    "teeServiceRegistry": "0x9644e8562cE0Fe12b4deeC4163c064A8862Bf47F"
+  },
+  "features": [
+    "Battle result storage",
+    "AI image generation via Ritual precompile",
+    "ERC-721 NFT minting",
+    "IPFS storage integration",
+    "Winner-only minting access control",
+    "Async 2-phase delivery"
+  ],
+  "deploymentSteps": [
+    "Install Foundry",
+    "Setup environment with private key",
+    "Install OpenZeppelin contracts",
+    "Compile with forge build",
+    "Deploy with forge script",
+    "Verify on block explorer"
+  ],
+  "feeRequirements": {
+    "imageGeneration": "0.15 RITUAL",
+    "lockDuration": "100,000 blocks (~9.7 hours)",
+    "faucet": "https://faucet.ritualfoundation.org"
+  },
+  "explorer": "https://explorer.ritualfoundation.org",
+  "rpc": "https://rpc.ritualfoundation.org"
+}

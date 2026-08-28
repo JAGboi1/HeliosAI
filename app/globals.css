@@ -1,0 +1,197 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --arena-bg: #0a0a0f;
+  --arena-text: #cccccc;
+  --arena-cyan: #00aaaa;
+  --arena-red: #cc3333;
+  --arena-purple: #7733cc;
+  --arena-purple-light: #bb55ff;
+  --arena-purple-glow: #9933ee;
+  --arena-green: #22cc22;
+  --arena-orange: #ff8800;
+  --arena-border: #1a1a28;
+  --arena-card: #0c0c13;
+  --radius: 0;
+}
+
+@theme inline {
+  --font-pixel: 'Press Start 2P', monospace;
+  --color-arena-bg: var(--arena-bg);
+  --color-arena-text: var(--arena-text);
+  --color-arena-cyan: var(--arena-cyan);
+  --color-arena-red: var(--arena-red);
+  --color-arena-purple: var(--arena-purple);
+  --color-arena-purple-light: var(--arena-purple-light);
+  --color-arena-purple-glow: var(--arena-purple-glow);
+  --color-arena-green: var(--arena-green);
+  --color-arena-orange: var(--arena-orange);
+  --color-arena-border: var(--arena-border);
+  --color-arena-card: var(--arena-card);
+}
+
+@layer base {
+  * {
+    @apply border-arena-border;
+    box-sizing: border-box;
+  }
+  body {
+    @apply bg-arena-bg text-arena-text;
+    font-size: 10px;
+  }
+}
+
+/* Scanline effect */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.07) 3px,
+    rgba(0, 0, 0, 0.07) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Animations */
+@keyframes vsPulse {
+  0%, 100% {
+    text-shadow: 0 0 22px #6611bb, 0 0 45px #44007a;
+  }
+  50% {
+    text-shadow: 0 0 38px #cc55ff, 0 0 75px #8811cc, 0 0 110px #440088;
+  }
+}
+
+@keyframes challengePulse {
+  0%, 100% {
+    box-shadow: 0 0 24px rgba(119, 51, 204, 0.33), inset 0 0 24px rgba(119, 51, 204, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 44px rgba(119, 51, 204, 0.67), inset 0 0 36px rgba(119, 51, 204, 0.13);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes flash {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes glitch {
+  0%, 87%, 100% {
+    transform: translate(0);
+    filter: none;
+  }
+  89% {
+    transform: translate(-3px, 1px);
+    filter: hue-rotate(90deg);
+  }
+  91% {
+    transform: translate(3px, -1px);
+    filter: none;
+  }
+  93% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(-90deg);
+  }
+  95% {
+    transform: translate(2px, -2px);
+    filter: none;
+  }
+}
+
+@keyframes typewriter {
+  to {
+    width: 26ch;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translate(0);
+  }
+  15% {
+    transform: translate(-7px, 3px);
+  }
+  30% {
+    transform: translate(7px, -3px);
+  }
+  45% {
+    transform: translate(-4px, 6px);
+  }
+  60% {
+    transform: translate(4px, -6px);
+  }
+  75% {
+    transform: translate(-3px, 4px);
+  }
+  90% {
+    transform: translate(3px, -4px);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.animate-vs-pulse {
+  animation: vsPulse 1.9s ease-in-out infinite;
+}
+
+.animate-challenge-pulse {
+  animation: challengePulse 2.2s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: blink 1.1s ease-in-out infinite;
+}
+
+.animate-flash {
+  animation: flash 0.7s ease-in-out infinite alternate;
+}
+
+.animate-glitch {
+  animation: glitch 2.2s infinite;
+}
+
+.animate-glitch-fast {
+  animation: glitch 1s infinite;
+}
+
+.animate-shake {
+  animation: shake 0.4s;
+}
+
+.animate-typewriter {
+  animation: typewriter 0.7s steps(26) forwards;
+}
+
+.animate-fade-out {
+  animation: fadeOut 0.55s forwards;
+}
+
+/* Pixel rendering */
+.pixel-render {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}

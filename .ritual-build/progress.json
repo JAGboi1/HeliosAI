@@ -1,0 +1,27 @@
+{
+  "intent": "build Helios Arena smart contract with battle storage and image generation",
+  "features": ["image_generation", "erc721_minting", "battle_storage", "ipfs_integration"],
+  "current_phase": 0,
+  "phases": ["projection", "architecture", "contracts", "deployment"],
+  "files_read": [
+    "skills/ritual-meta-projection/SKILL.md",
+    "skills/ritual-dapp-overview/SKILL.md", 
+    "skills/ritual-dapp-precompiles/SKILL.md",
+    "agents/ritual-dapp-builder.md",
+    "examples/registry.json",
+    "skills/ritual-dapp-multimodal/SKILL.md",
+    "skills/ritual-dapp-contracts/SKILL.md"
+  ],
+  "next_file": "skills/ritual-dapp-wallet/SKILL.md",
+  "markers": {
+    "chain_connection": false,
+    "wallet_funded": false,
+    "contract_compiled": false,
+    "contract_deployed": false,
+    "precompile_simulated": false,
+    "precompile_settled": false,
+    "frontend_renders": false,
+    "frontend_connects": false,
+    "e2e_complete": false
+  }
+}
